@@ -7,7 +7,7 @@ public class basics{
          System.out.println("Enter the number:");
          int b = sc.nextInt();
          System.out.println(b);
-        
+        System.out.println("Hello world");
 
     }
 }
