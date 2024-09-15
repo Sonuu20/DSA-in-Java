@@ -18,7 +18,7 @@ public class SubArrays {
 
     // Brut force, Time comlexity - O(n^3)
     public static void MaxSubArraySum(int arr[]) {
-        int currSum = 0, maxSum = Integer.MIN_VALUE;
+        int currSum , maxSum = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
             int start = i;
             for (int j = i; j < arr.length; j++) {
@@ -60,16 +60,13 @@ public class SubArrays {
         System.out.println("The sum of maximum subarray is: " + maxSum);
     }
 
-    // Kadane Algorithm- most optimised code , time complexity - O(n)
+    // Kadane Algorithm(improved for all negative no) - most optimised code , time complexity - O(n)
     public static void Kadane(int arr[]) {
         int maxSum = Integer.MIN_VALUE;
-        int currSum = arr[0];
+        int currSum = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            currSum = currSum + arr[i];
-            if (currSum < 0) {
-                currSum = 0;
-            }
+            currSum = Math.max(arr[i], currSum + arr[i]);
             maxSum = Math.max(currSum, maxSum);
         }
         System.out.println("Our Max Subarray Sum is: " + maxSum);
@@ -77,7 +74,7 @@ public class SubArrays {
     }
 
     public static void main(String[] args) {
-        int arr[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
+        int arr[] = { -2, -3, -4, -1, -2, -1, -5, -3 };
         // PrintSubArrays(arr);
         // MaxSubArraySum2(arr);
         Kadane(arr);
