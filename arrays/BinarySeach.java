@@ -21,7 +21,7 @@ public class BinarySeach {
 
     public static void main(String[] args) {
         int number[] = { 2, 4, 6, 8, 10, 12 };
-        int key = 65;
+        int key = 8;
         int index = BinarySeach(number, key);
         if (index == -1) {
             System.out.println("Index not found");
